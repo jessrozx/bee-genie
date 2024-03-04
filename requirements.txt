@@ -4,7 +4,6 @@ atomicwrites==1.4.0
 bkcharts==0.2
 brotlipy==0.7.0
 clyent==1.2.1
-conda-verify==3.4.2
 daal4py==2023.1.1
 datashape==0.5.4
 distlib==0.3.8
