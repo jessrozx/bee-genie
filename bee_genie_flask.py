@@ -1,22 +1,20 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Mar  2 16:19:30 2024
 
-@author: jessicaorozco
-"""
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request
 import re
 import urllib.request
 import string
+import os
 
 app = Flask(__name__)
 
 # Function to filter words
 def filter_words(center_letter, other_letters):
-    url = "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt"
-    response = urllib.request.urlopen(url)
-    data = response.read().decode('utf-8')
+    #url = "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt"
+    with app.open_resource('static/collins_scrabble_words_2019.txt') as f:
+        response = f.read()
+   # response = urllib.request.urlopen(url)
+    #data = response.read().decode('utf-8')
+    data = response.decode('utf-8')
     word_list = data.splitlines()
     short_words_uppercase = [word.upper() for word in word_list if len(word) > 3]
     seven_letters = center_letter + other_letters
@@ -39,9 +37,7 @@ def filter():
     other_letters = request.form['other_letters'].upper()
     filtered_words = filter_words(center_letter, other_letters)
     return render_template('result.html', filtered_words=filtered_words)
-
 if __name__ == '__main__':
-    app.run(debug=True)
-    
+    app.debug = False
 
 

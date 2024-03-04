@@ -17,9 +17,10 @@ app = Flask(__name__)
 
 # Function to filter words
 def filter_words(center_letter, other_letters):
-    url = "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt"
-    response = urllib.request.urlopen(url)
-    data = response.read().decode('utf-8')
+
+    with app.open_resource('static/collins_scrabble_words_2019.txt') as f:
+        response = f.read()
+    data = response.decode('utf-8')
     word_list = data.splitlines()
     short_words_uppercase = [word.upper() for word in word_list if len(word) > 3]
     seven_letters = center_letter + other_letters
