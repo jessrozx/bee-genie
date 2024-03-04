@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Created on Sat Mar  2 16:19:30 2024
 
 @author: jessicaorozco
 """
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request
 import re
 import urllib.request
 import string
+import os
 
 app = Flask(__name__)
 
@@ -39,9 +42,8 @@ def filter():
     other_letters = request.form['other_letters'].upper()
     filtered_words = filter_words(center_letter, other_letters)
     return render_template('result.html', filtered_words=filtered_words)
-
 if __name__ == '__main__':
-    app.run(debug=True)
-    
+    app.debug = False
+ 
 
 
