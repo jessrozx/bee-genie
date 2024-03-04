@@ -14,12 +14,10 @@ fonttools==4.25.0
 gunicorn==21.2.0
 inflection==0.5.1
 itsdangerous==2.1.2
-jaraco.classes @ file:///tmp/build/80754af9/jaraco.classes_1620983179379/work
 jsonpointer==2.1
 mkl-service==2.4.0
 mkl_fft==1.3.8
 munkres==1.1.4
-mypy @ file:///private/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_a1kh3l6yk3/croot/
 openpyxl==3.0.10
 patsy==0.5.3
 pep8==1.7.1
