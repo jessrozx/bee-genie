@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Change the font family as needed */
+        }
+
+        /* Add custom styles for the labels */
+        label {
+            font-size: 18px; /* Adjust font size */
+            font-weight: bold; /* Make font bold */
+            color: #563d2d; /* Change text color */
+        }
+
+        /* Add custom styles for the submit button */
+        input[type="submit"] {
+            width: 250px; /* Adjust width as needed */
+            height: 55px; /* Adjust height as needed */
+            background-color: #FFD700; /* Yellow background color */
+            border: none; /* Remove border */
+            color: #475927; /* White text color */
+            text-align: center; /* Center text */
+            font-size: 24px; /* Adjust font size */
+            font-weight: bold; /* Make font bold */
+            position: relative;
+        }
+
+        /* Create hexagon shape */
+        input[type="submit"]:before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: calc(50% - 25px);
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 43.3px solid #FFD700; /* Adjust size to make a perfect hexagon */
+        }
+
+        input[type="submit"]:after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: calc(50% - 25px);
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 43.3px solid #FFD700; /* Adjust size to make a perfect hexagon */
+        }
+
+        /* Add hover effect */
+        input[type="submit"]:hover {
+            background-color: #FFCC00; /* Darker yellow on hover */
+        }
+    </style>
+    <img style="max-width: 50%; height: auto;" src="{{url_for('static', filename='bee_genie_banner.png')}}"/>
+    <title>Bee Genie</title>
+</head>
+<body>
+    <h1><img style="max-width: 20%; height: auto;" src="{{url_for('static', filename='bee.png')}}"/></h1>
+    <form action="/filter" method="post">
+        <label for="center_letter">Enter Center Letter:</label>
+        <input type="text" id="center_letter" name="center_letter" maxlength="1" required><br><br>
+        <label for="other_letters">Enter Other Letters:</label>
+        <input type="text" id="other_letters" name="other_letters" maxlength="6" required><br><br>
+        <input type="submit" value="Show me the honey!">
+    </form>
+</body>
+</html>
